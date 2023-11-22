@@ -68,7 +68,13 @@ def send_all_skill(message):
 def find_jd(message):
     try:
         jd_num = int(message.text.replace("/jd", "").strip())
+        if jd_num <= 0:
+            bot.send_message(message.chat.id, "Không tìm thấy công việc nào theo yêu cầu của bạn") 
+            return 
         jds = match_jd(message.chat.id, jd_num)
+        if len(jds) == 0:
+            bot.send_message(message.chat.id, "Không tìm thấy công việc nào theo yêu cầu của bạn") 
+            return 
         resp = "Các công việc sau có thể phù hợp với bạn:\n"
         bot.send_message(message.chat.id, resp) 
         for i in range(len(jds)):
