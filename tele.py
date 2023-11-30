@@ -81,7 +81,7 @@ def find_jd(message):
             resp = ""
             resp += f"{i + 1}. {jds[i][1].name}\n"
             resp += f"- Công ty: {jds[i][1].company}\n"
-            resp += f"- Mô tả công việc: {jds[i][1].describe}\n"
+            resp += f"- Mô tả công việc: {jds[i][1].describe.replace('-', '').replace(chr(10), '.')}\n"
             resp += f"- Kĩ năng yêu cầu: {jds[i][1].skill}\n"
             resp += f"- Luơng: {jds[i][1].salary}\n"
             resp += f"- Quyền lợi: {jds[i][1].benefit}\n"
